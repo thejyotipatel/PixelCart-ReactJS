@@ -1,4 +1,11 @@
+import { FormInput, SubmitBtn } from '../componens'
+
 const Login = () => {
-  return <div>Login</div>
+  return (
+    <>
+      <FormInput />
+      <SubmitBtn text={'button'} />
+    </>
+  )
 }
 export default Login
