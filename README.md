@@ -5,9 +5,10 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - React
 - Vite
 - Tailwind CSS
-- Daily UI
+- daisy UI
 - tailwindcss/typography
 - React-router-dom
+- React-icons
 
 Currently, two official plugins are available:
 

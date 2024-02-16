@@ -27,8 +27,14 @@ const Navbar = () => {
         <div className='navbar align-contaner'>
           <div className='flex-1'>
             {/* logo */}
-            <NavLink to='/' className='hidden  md:flex   items-center'>
-              <img src='/favicon.ico' alt='pc' />
+            <NavLink to='/' className=' hidden  md:flex  p-0 items-center    '>
+              <div className='  stats bg-primary shadow  '>
+                <div className='stat px-3 py-2'>
+                  <div className='stat-title text-primary-content text-3xl font-bold p-0 '>
+                    PC
+                  </div>
+                </div>
+              </div>
             </NavLink>
 
             {/* mobile menu */}
