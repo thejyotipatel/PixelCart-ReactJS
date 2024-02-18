@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import NavLinks from './NavLinks'
 
 const Footer = () => {
@@ -8,7 +9,15 @@ const Footer = () => {
       </ul>
 
       <nav>
-        <div className='grid grid-flow-col gap-4'>Link</div>
+        <div className='grid grid-flow-col gap-2 text-lg'>
+          Get code on Github-
+          <Link
+            to={'https://github.com/thejyotipatel/PixelCart-ReactJS'}
+            className='text-primary font-bold'
+          >
+            @thejyotipatel
+          </Link>
+        </div>
       </nav>
     </footer>
   )
