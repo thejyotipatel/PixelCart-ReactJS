@@ -5,7 +5,7 @@ const ProductGrid = () => {
   const { products } = useLoaderData()
   return (
     <>
-      <div className=' pb-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3 place-content-center'>
+      <div className=' pb-8 grid gap-10 md:grid-cols-2 lg:grid-cols-3 place-content-center'>
         {products.map((items) => {
           const { title, price, image } = items.attributes
           const ruppesPrice = formetPrice(price)
@@ -15,7 +15,7 @@ const ProductGrid = () => {
               to={`/products/${items.id}`}
               className='card w-96 bg-base-100 shadow-xl hover:shadow-2xl transition duration-200'
             >
-              <figure className='px-10 pt-10'>
+              <figure className='px-8 pt-8'>
                 <img
                   src={image}
                   alt={title}

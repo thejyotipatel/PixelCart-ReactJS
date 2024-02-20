@@ -14,8 +14,13 @@ const SingleProduct = () => {
   const ruppesAmount = formetPrice(price)
 
   const [productColors, setProductColors] = useState(colors[0])
+  const [amount, setAmount] = useState(1)
+
+  const handleAmount = (e) => {
+    setAmount(parseInt(e.target.value))
+  }
   // console.log(product, ruppesAmount)
-  console.log(colors)
+  // console.log(colors)
   return (
     <>
       <section>
@@ -70,6 +75,29 @@ const SingleProduct = () => {
                   )
                 })}
               </div>
+            </div>
+
+            {/* AMOUNT */}
+            <div className='form-control w-full  max-w-xs'>
+              <label htmlFor='amount' className='label'>
+                <span className='label-text'>Amount</span>
+              </label>
+              <select
+                className='select select-bordered select-sm'
+                id='amount'
+                value={amount}
+                onChange={handleAmount}
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+
+            {/* CART BTN */}
+            <div className='my-10'>
+              <button className='btn btn-primary btn-md '>Add to bag</button>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ const Footer = () => {
           Get code on Github-
           <Link
             to={'https://github.com/thejyotipatel/PixelCart-ReactJS'}
-            className='text-primary font-bold'
+            className='text-primary font-bold link-hover'
           >
             @thejyotipatel
           </Link>

@@ -18,6 +18,18 @@ const About = () => {
           natus vel totam ullam rem deserunt tempore facere beatae animi eaque,
           praesentium ipsa. Reiciendis.
         </p>
+        <p className='mt-4 text-md leading-8 max-w-2xl mx-auto'>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio,
+          eligendi voluptatum. Dolorem sunt exercitationem, distinctio, pariatur
+          natus vel totam ullam rem deserunt tempore facere beatae animi eaque,
+          praesentium ipsa. Reiciendis.
+        </p>
+        <p className='my-4 text-md leading-8 max-w-2xl mx-auto'>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio,
+          eligendi voluptatum. Dolorem sunt exercitationem, distinctio, pariatur
+          natus vel totam ullam rem deserunt tempore facere beatae animi eaque,
+          praesentium ipsa. Reiciendis.
+        </p>
       </div>
     </>
   )
