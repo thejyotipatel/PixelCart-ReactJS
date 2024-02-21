@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from 'react-router-dom'
-import { customFetch, formetPrice } from '../utils'
+import { customFetch, formetPrice, generateAmountOptions } from '../utils'
 import { useState } from 'react'
 
 export const loader = async ({ params }) => {
@@ -19,8 +19,7 @@ const SingleProduct = () => {
   const handleAmount = (e) => {
     setAmount(parseInt(e.target.value))
   }
-  // console.log(product, ruppesAmount)
-  // console.log(colors)
+
   return (
     <>
       <section>
@@ -88,10 +87,7 @@ const SingleProduct = () => {
                 value={amount}
                 onChange={handleAmount}
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                {generateAmountOptions(10)}
               </select>
             </div>
 
