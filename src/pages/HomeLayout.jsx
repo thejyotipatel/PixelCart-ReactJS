@@ -1,16 +1,23 @@
-import { Outlet } from 'react-router-dom'
-import { Footer, Header, Hero, Navbar } from '../componens'
+import { Outlet, useNavigation } from 'react-router-dom'
+import { Footer, Header, Hero, Navbar, Loading } from '../componens'
 
 const HomeLayout = () => {
+  const navigation = useNavigation()
+  const isPageLoading = navigation.state === 'loading'
   return (
     <>
       <Header />
       <Navbar />
-      {/* <Hero /> */}
-      <section className='align-contaner pt-6'>
-        <Outlet />
-      </section>
-      <Footer />
+      {isPageLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <section className='align-contaner pt-6'>
+            <Outlet />
+          </section>
+          <Footer />
+        </>
+      )}
     </>
   )
 }

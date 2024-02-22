@@ -66,7 +66,8 @@ const SingleProduct = () => {
                       key={index}
                       type='button'
                       className={`badge w-6 h-6 mr-2 ${
-                        color === productColors && 'border-2 border-neutral-600'
+                        color === productColors &&
+                        'border-2 border-neutral-content'
                       } `}
                       style={{ backgroundColor: color }}
                       onClick={() => setProductColors(color)}
