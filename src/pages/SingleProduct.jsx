@@ -30,7 +30,7 @@ const SingleProduct = () => {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to={`/products/${product.id}`}>products/{product.id}</Link>
+              <Link to={`/products`}>products</Link>
             </li>
           </ul>
         </div>

@@ -1,12 +1,53 @@
+import { useLoaderData } from 'react-router-dom'
+
 const PaginationContainer = () => {
+  const { meta } = useLoaderData()
+  const { pageCount, page } = meta.pagination
+
+  const pages = Array.from({ length: pageCount }, (_, index) => {
+    return index + 1
+  })
+
+  const handlePageChange = (pageNumber) => {
+    console.log(pageNumber)
+  }
+
+  if (pageCount < 2) return null
+
   return (
     <>
-      <div className='join'>
-        <button className='join-item btn'>1</button>
-        <button className='join-item btn'>2</button>
-        <button className='join-item btn btn-disabled'>...</button>
-        <button className='join-item btn'>99</button>
-        <button className='join-item btn'>100</button>
+      <div className='mt-16  mb-4 flex justify-end'>
+        <div className='join'>
+          <button
+            className='btn btn-xs sm:btn-md join-item'
+            onClick={() => handlePageChange('prev')}
+          >
+            Prev
+          </button>
+
+          {pages.map((pageNumber) => {
+            return (
+              <button
+                key={pageNumber}
+                className={`btn btn-xs sm:btn-md  border-none ${
+                  pageNumber === page
+                    ? 'bg-primary text-neutral-content hover:text-neutral '
+                    : ''
+                } join-item`}
+                onClick={() => handlePageChange(pageNumber)}
+              >
+                {pageNumber}
+              </button>
+            )
+          })}
+
+          <button
+            className='btn btn-xs sm:btn-md join-item'
+            onClick={() => handlePageChange('next')}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </>
   )

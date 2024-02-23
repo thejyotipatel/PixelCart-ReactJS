@@ -1,9 +1,9 @@
 const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
-    <label className='form-control  '>
-      <div className='label'>
+    <div className='form-control  '>
+      <label htmlFor={name} className='label'>
         <span className='label-text capitalize'>{label}</span>
-      </div>
+      </label>
       <input
         type={type}
         placeholder='Type here'
@@ -11,7 +11,7 @@ const FormInput = ({ label, name, type, defaultValue, size }) => {
         name={name}
         defaultValue={defaultValue}
       />
-    </label>
+    </div>
   )
 }
 export default FormInput

@@ -1,5 +1,5 @@
 import { Outlet, useNavigation } from 'react-router-dom'
-import { Footer, Header, Hero, Navbar, Loading } from '../componens'
+import { Footer, Header, Navbar, Loading } from '../componens'
 
 const HomeLayout = () => {
   const navigation = useNavigation()
