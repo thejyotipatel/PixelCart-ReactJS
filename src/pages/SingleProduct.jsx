@@ -1,7 +1,8 @@
 import { Link, useLoaderData } from 'react-router-dom'
 import { customFetch, formetPrice, generateAmountOptions } from '../utils'
 import { useState } from 'react'
-
+import { useDispatch } from 'react-redux'
+import { addItem } from '../featureds/cartSlice'
 export const loader = async ({ params }) => {
   const response = await customFetch(`/products/${params.id}`)
   return { product: response.data.data }
@@ -13,13 +14,29 @@ const SingleProduct = () => {
     product.attributes
   const ruppesAmount = formetPrice(price)
 
-  const [productColors, setProductColors] = useState(colors[0])
+  const [productColor, setProductColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
 
   const handleAmount = (e) => {
     setAmount(parseInt(e.target.value))
   }
 
+  const cartProduct = {
+    cartID: product.id + productColor,
+    productId: product.id,
+    image,
+    title,
+    price,
+    company,
+    productColor,
+    amount,
+  }
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(addItem({ product: cartProduct }))
+  }
   return (
     <>
       <section>
@@ -66,11 +83,11 @@ const SingleProduct = () => {
                       key={index}
                       type='button'
                       className={`badge w-6 h-6 mr-2 ${
-                        color === productColors &&
+                        color === productColor &&
                         'border-2 border-neutral-content'
                       } `}
                       style={{ backgroundColor: color }}
-                      onClick={() => setProductColors(color)}
+                      onClick={() => setProductColor(color)}
                     ></button>
                   )
                 })}
@@ -94,7 +111,9 @@ const SingleProduct = () => {
 
             {/* CART BTN */}
             <div className='my-10'>
-              <button className='btn btn-primary btn-md '>Add to bag</button>
+              <button onClick={addToCart} className='btn btn-primary btn-md '>
+                Add to bag
+              </button>
             </div>
           </div>
         </div>

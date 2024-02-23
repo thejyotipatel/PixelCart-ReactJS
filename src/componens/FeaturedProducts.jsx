@@ -5,7 +5,7 @@ const FeaturedProducts = () => {
   return (
     <>
       <div className='pt-4'>
-        <SectionTitle text='featured product' />
+        <SectionTitle text='Featured Product' />
 
         <ProductGrid />
       </div>

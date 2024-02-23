@@ -10,3 +10,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - React-router-dom
 - React-icons
 - axios
+- reduxjs/toolkit
+- react-redux
+- react-toastify

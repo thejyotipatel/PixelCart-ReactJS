@@ -3,6 +3,7 @@ import { HiMoon, HiOutlineMenuAlt2, HiSun } from 'react-icons/hi'
 import { FiShoppingCart } from 'react-icons/fi'
 import NavLinks from './NavLinks'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const themes = {
   fantasy: 'fantasy',
@@ -21,6 +22,9 @@ const Navbar = () => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
   }, [theme])
+
+  // ITEM NUMBER IN CART
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCarts)
   return (
     <>
       <nav className='bg-base-200'>
@@ -77,7 +81,7 @@ const Navbar = () => {
               <div className='indicator'>
                 <FiShoppingCart className='h-6 w-6 ' />
                 <span className='badge badge-primary badge-md indicator-item'>
-                  4
+                  {numItemsInCart}
                 </span>
               </div>
             </NavLink>
