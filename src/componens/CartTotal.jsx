@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { formetPrice } from '../utils/index'
 const CartTotal = () => {
-  const { text, cartTotal, shipping, tex, orderTotal } = useSelector(
+  const { text, cartTotal, shipping, tax, orderTotal } = useSelector(
     (state) => state.cartState
   )
   return (
@@ -21,14 +21,14 @@ const CartTotal = () => {
 
         {/* TAX */}
         <p className='flex justify-between text-xs border-b border-base-300 pb-2'>
-          <span>Tex</span>
-          <span className='font-medium'>{formetPrice(tex)}</span>
+          <span>Tax</span>
+          <span className='font-medium'>{formetPrice(tax)}</span>
         </p>
 
         {/* ORDER TOTAL */}
-        <p className='flex justify-between text-xs border-b border-base-300 pb-2'>
+        <p className='flex justify-between text-sm font-medium mt-4 pb-2'>
           <span>Order Total</span>
-          <span className='font-medium'>{formetPrice(orderTotal)}</span>
+          <span>{formetPrice(orderTotal)}</span>
         </p>
       </div>
     </div>

@@ -13,7 +13,7 @@ const ProductGrid = () => {
             <Link
               key={items.id}
               to={`/products/${items.id}`}
-              className='card w-96 bg-base-100 shadow-xl hover:shadow-2xl transition duration-200'
+              className='card  bg-base-100 shadow-xl hover:shadow-2xl transition duration-200'
             >
               <figure className='px-8 pt-8'>
                 <img

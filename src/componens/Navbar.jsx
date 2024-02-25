@@ -2,26 +2,15 @@ import { NavLink } from 'react-router-dom'
 import { HiMoon, HiOutlineMenuAlt2, HiSun } from 'react-icons/hi'
 import { FiShoppingCart } from 'react-icons/fi'
 import NavLinks from './NavLinks'
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-
-const themes = {
-  fantasy: 'fantasy',
-  dark: 'dark',
-}
-const getThemeLocalStorage = localStorage.getItem('theme') || themes.fantasy
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleTheme } from '../featureds/user/userSlice'
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(getThemeLocalStorage)
-  const handleTheme = () => {
-    const newTheme = theme === themes.dark ? themes.fantasy : themes.dark
-    setTheme(newTheme)
-  }
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+  const handleTheme = () => {
+    dispatch(toggleTheme())
+  }
 
   // ITEM NUMBER IN CART
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCarts)
