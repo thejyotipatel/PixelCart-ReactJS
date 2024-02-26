@@ -1,6 +1,24 @@
 import { FormInput, SubmitBtn } from '../componens'
 import { Form, Link } from 'react-router-dom'
 
+export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
+
+  try {
+    const response = await customFetch.post('/auth/local/', data)
+    toast.success('Login successfully')
+    console.log(response)
+    return redirect('/')
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.error?.message ||
+      'Please double check your credentials'
+    toast.error(errorMessage)
+    console.log(error)
+    return null
+  }
+}
 const Login = () => {
   return (
     <>
