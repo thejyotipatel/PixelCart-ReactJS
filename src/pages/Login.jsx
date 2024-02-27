@@ -18,6 +18,7 @@ export const action =
 
       return redirect('/')
     } catch (error) {
+      console.log(error)
       const errorMessage =
         error?.response?.data?.error?.message ||
         'Please double check your credentials'
@@ -57,8 +58,9 @@ const Login = () => {
             <SubmitBtn text='login' />
           </div>
           <button
+            type='button'
             className='btn btn-secondary uppercase'
-            onClick={() => loginAsGuestUser()}
+            onClick={loginAsGuestUser}
           >
             guest user
           </button>

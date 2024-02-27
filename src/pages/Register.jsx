@@ -13,6 +13,7 @@ export const action = async ({ request }) => {
     toast.success('Account created successfully')
     return redirect('/login')
   } catch (error) {
+    console.log(error)
     const errorMessage =
       error?.response?.data?.error?.message ||
       'Please double check your credentials'
@@ -38,7 +39,7 @@ const Register = () => {
           <div className='mt-4'>
             <SubmitBtn text='register' />
           </div>
-          <button className='btn btn-secondary uppercase '>guest user</button>
+
           <p className='text-center'>
             Already a member?
             <Link
