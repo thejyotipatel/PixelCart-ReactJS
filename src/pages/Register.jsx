@@ -9,15 +9,15 @@ export const action = async ({ request }) => {
 
   try {
     const response = await customFetch.post('/auth/local/register', data)
+
     toast.success('Account created successfully')
-    console.log(response)
     return redirect('/login')
   } catch (error) {
     const errorMessage =
       error?.response?.data?.error?.message ||
       'Please double check your credentials'
     toast.error(errorMessage)
-    console.log(error)
+
     return null
   }
 }
