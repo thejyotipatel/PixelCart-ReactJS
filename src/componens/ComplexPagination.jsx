@@ -6,60 +6,36 @@ const ComplexPagination = () => {
 
   const { search, pathname } = useLocation()
   const navigate = useNavigate()
-
   const handlePageChange = (pageNumber) => {
     const searchParams = new URLSearchParams(search)
     searchParams.set('page', pageNumber)
     navigate(`${pathname}?${searchParams.toString()}`)
-    // console.log(`${pathname}?${searchParams.toString()}`)
   }
 
   const addPageButton = ({ pageNumber, activeClass }) => {
+    console.log(activeClass)
     return (
       <button
         key={pageNumber}
-        className={`btn btn-xs sm:btn-md  border-none join-item ${
-          activeClass ? 'bg-base-300 border-base-300' : ''
-        }  `}
         onClick={() => handlePageChange(pageNumber)}
+        className={`btn btn-xs sm:btn-md  border-none join-item ${
+          activeClass ? ' bg-base-300 border-base-300 ' : ''
+        }`}
       >
         {pageNumber}
       </button>
     )
   }
 
-  const renderPageButton = () => {
-    const pageButton = []
+  const randerPageButtons = () => {
+    const pageButtons = []
     // FIRST BUTTON
-    pageButton.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }))
-
-    // DOT BUTTON
-    if (page > 2) {
-      pageButton.push(
-        <button className='join-item btn btn-xs sm:btn-md' key='dots-1'>
-          ...
-        </button>
-      )
-    }
-
-    // ACTIVE BUTTON
-    if (page !== 1 && page !== pageCount) {
-      pageButton.push(addPageButton({ pageNumber: page, activeClass: true }))
-    }
-
-    // DOT BUTTON
-    if (page < pageCount - 1) {
-      pageButton.push(
-        <button className='join-item btn btn-xs sm:btn-md' key='dots-2'>
-          ...
-        </button>
-      )
-    }
+    pageButtons.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }))
     // LAST BUTTON
-    pageButton.push(
+    pageButtons.push(
       addPageButton({ pageNumber: pageCount, activeClass: page === pageCount })
     )
-    return pageButton
+    return pageButtons
   }
 
   if (pageCount < 2) return null
@@ -79,12 +55,13 @@ const ComplexPagination = () => {
             Prev
           </button>
 
-          {renderPageButton()}
+          {randerPageButtons()}
 
           <button
             className='btn btn-xs sm:btn-md join-item'
             onClick={() => {
               let nextPage = page + 1
+              console.log(nextPage)
               if (nextPage > pageCount) nextPage = 1
               handlePageChange(nextPage)
             }}
@@ -96,4 +73,5 @@ const ComplexPagination = () => {
     </>
   )
 }
+
 export default ComplexPagination

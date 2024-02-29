@@ -15,3 +15,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - react-toastify
 - dayjs
 - tanstack/react-query
+
+[API DOCS](https://documenter.getpostman.com/view/18152321/2s9Xy5KpTi)
+
+[Project](https://spiffy-creponne-a5df25.netlify.app/)

@@ -1,6 +1,6 @@
+import { useLoaderData } from 'react-router-dom'
 import day from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
-import { useLoaderData } from 'react-router-dom'
 day.extend(advancedFormat)
 
 const OrdersList = () => {

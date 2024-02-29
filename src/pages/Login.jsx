@@ -38,10 +38,9 @@ const Login = () => {
       })
       dispatch(loginUser(response.data))
       toast.success('welcome guest user')
-      return navigate('/')
+      navigate('/')
     } catch (error) {
       toast.error('guest user login error, please try again')
-      return null
     }
   }
   return (

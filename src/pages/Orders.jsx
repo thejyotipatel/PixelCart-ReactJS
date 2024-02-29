@@ -35,7 +35,7 @@ export const loader =
     ])
 
     try {
-      const response = await await queryClient.ensureQueryData(
+      const response = await queryClient.ensureQueryData(
         ordersQuery(params, user)
       )
 
@@ -46,14 +46,13 @@ export const loader =
     } catch (error) {
       console.log(error)
       const errorMessage =
-        error?.response?.data?.error?.message + error.response.status ||
+        error?.response?.data?.error?.message ||
         'There was an error placing your order'
       toast.error(errorMessage)
 
       // WHEAN TOKEN HAS PROBLEM
-      if (error?.response?.status === 401) {
-        return redirect('/login')
-      }
+      if (error?.response?.status === 401) return redirect('/login')
+
       return null
     }
   }
